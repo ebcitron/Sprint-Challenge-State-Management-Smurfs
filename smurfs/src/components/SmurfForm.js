@@ -1,8 +1,10 @@
 import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import Axios from 'axios';
+import { connect } from 'tls';
 
 function SmurfForm({values, errors, touched, isSubmitting}){
+ 
     return(
         <div className = "SmurfForm">
             <h3>Add A Smurf!</h3>
@@ -41,6 +43,7 @@ const FormikSmurfForm = withFormik({
             console.log('PostRes', res);
             resetForm();
             setSubmitting(false);
+           
         })
         .catch(err => {
             console.log('PostErr', err);

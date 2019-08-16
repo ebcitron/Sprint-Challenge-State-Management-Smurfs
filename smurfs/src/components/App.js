@@ -17,13 +17,15 @@ class App extends React.Component{
     this.props.getSmurfs()
   }
 
+
+
   render(){
     console.log('APPprops', this.props);
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <SmurfList smurfs = {this.props.smurfs} />
-        <SmurfForm form = {this.props.form} />
+        <SmurfForm getSmurfs = {getSmurfs} form = {this.props.form} />
       </div>
     );
   }
@@ -33,7 +35,8 @@ const mapStateToProps = (state) => {
   return {
     smurfs: state.smurfs,
     isLoading: state.isLoading,
-    error: state.error
+    error: state.error,
+    form: state.form
   };
 };
 export default connect(mapStateToProps, {getSmurfs})(App);
