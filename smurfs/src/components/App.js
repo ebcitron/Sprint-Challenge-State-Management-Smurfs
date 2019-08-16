@@ -19,13 +19,14 @@ class App extends React.Component{
 
 
 
+
   render(){
     console.log('APPprops', this.props);
     return (
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
         <SmurfList smurfs = {this.props.smurfs} />
-        <SmurfForm getSmurfs = {getSmurfs} form = {this.props.form} />
+        <SmurfForm  />
       </div>
     );
   }

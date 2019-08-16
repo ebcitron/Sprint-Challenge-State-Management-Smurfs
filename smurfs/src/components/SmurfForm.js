@@ -1,7 +1,8 @@
 import React from 'react';
 import {withFormik, Form, Field} from 'formik';
 import Axios from 'axios';
-import { connect } from 'tls';
+import { connect } from 'react-redux';
+import {getSmurfs} from './actions';
 
 function SmurfForm({values, errors, touched, isSubmitting}){
  
@@ -52,4 +53,10 @@ const FormikSmurfForm = withFormik({
     }
 })(SmurfForm);
 
-export default FormikSmurfForm;
+const mapStateToProps = state => {
+    return {
+     ...state   
+    }
+}
+
+export default connect(mapStateToProps, {getSmurfs})(FormikSmurfForm);
